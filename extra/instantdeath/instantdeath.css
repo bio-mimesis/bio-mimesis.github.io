@@ -1,0 +1,34 @@
+@import url("/common.css");
+
+:root {
+    font-family: "Iosevka Term SS04 Web", 'Courier New', Courier, monospace;
+    font-weight: 400;
+}
+
+#root-layout {
+    overflow: auto;
+    scrollbar-gutter: auto;
+}
+
+#magic-container {
+    grid-row: body;
+    font-size: max(min(2vw, 1.6em), 1em);
+}
+
+.magic, .separator {
+    line-height: 1.5;
+    font-variant-ligatures: none;
+    contain: content;
+    display: inline;
+    white-space-collapse: break-spaces;
+    word-break: break-all;
+    line-break: anywhere;
+    overflow-wrap: anywhere;
+}
+
+@media (orientation: portrait) {
+    .magic, .separator {
+        font-size: 3vh;
+        line-height: 1.5;
+    }
+}

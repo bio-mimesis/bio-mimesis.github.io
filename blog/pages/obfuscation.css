@@ -1,0 +1,64 @@
+@import url("/common.css");
+
+.magic {
+    font-family: "Iosevka Term SS04 Web", 'Courier New', Courier, monospace;
+    font-weight: 400;
+    line-height: 1.5;
+    font-variant-ligatures: none;
+    contain: content;
+    display: inline;
+    white-space-collapse: break-spaces;
+    word-break: break-all;
+    line-break: anywhere;
+    overflow-wrap: anywhere;
+}
+
+#magic-snippet {
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    resize: none;
+    width: 80vw;
+    font-size: 1.1em;
+    overflow-x: auto;
+    color: light-dark(var(--theme-light-emphasis), var(--theme-dark-emphasis));
+    background-color: light-dark(var(--theme-light-bgaccent), var(--theme-dark-bgaccent));
+    scrollbar-gutter: stable;
+    scrollbar-color: light-dark(var(--theme-light-primary), var(--theme-dark-primary)) rgba(0, 0, 0, 0);
+    scrollbar-width: thin;
+}
+
+@media (orientation: portrait) {
+    #magic-snippet {
+        align-items: center;
+    }
+  }
+
+textarea.html {
+    height: 4em;
+}
+
+textarea.js {
+    height: 25em;
+}
+
+textarea.css {
+    height: 14em;
+}
+
+#ascii-image {
+    background-color: black;
+    width: 40vh;
+    max-width: 400px;
+    aspect-ratio: auto;
+}
+
+textarea.bitwidth {
+    height: 20em;
+}
+
+figcaption {
+    font-size: .9em;
+}

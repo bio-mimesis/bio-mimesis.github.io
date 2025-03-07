@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BIOMIMESIS: Imitation Is the Sincerest Form of Flattery</title>
+  <link rel="preload" href="/static/fonts-subset/Meslo-LG-DZ/MesloLGMDZ-Regular-subset.ttf" as="font" type="font/woff2"
+    crossorigin>
+  <link rel="preload" href="/static/fonts-subset/Iosevka-Term-SS04/IosevkaTermSS04-ExtendedLight-subset.woff2" as="font"
+    type="font/woff2" crossorigin>
+  <link href="/blog/pages/obfuscation.css" rel="stylesheet" type="text/css" media="all">
+</head>
+
+<body>
+  <div id="root-layout">
+    <div id="body-layout">
+      <div id="title">
+        <h1>BIOMIMESIS</h1>
+        <h2>IMITATION IS THE SINCEREST FORM OF FLATTERY</h2>
+      </div>
+      <div id="body-container">
+
+        <div id="main-content">
+          <div id="side-container">
+            <div class="sidebar">
+              <div class="sidebar-header">Key Links</div>
+              <div class="sidebar-link-flex">
+                <div class="sidebar-link" data-comment="Take me home"><a href="/index.html">Home</a></div>
+                <div class="sidebar-link" data-comment="Bits and bobs of my brain"><a href="/blog/blog.html">Blog</a>
+                </div>
+                <div class="sidebar-link" data-comment="So I may understand myself"><a
+                    href="/writing/writing.html">Writing</a></div>
+              </div>
+            </div>
+            <div class="sidebar">
+              <div class="sidebar-header">Extra</div>
+              <div class="sidebar-link-flex">
+                <div class="sidebar-link" data-comment="Don't miss out!"><a
+                    href="/extra/instantdeath/instantdeath.html">Instant Death!</a></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="text-content">
+            <p>
+              Minecraft has a unique format code called 'Obfuscated' text. Here's what it looks like:
+            </p>
+            <div class="magic" data-comment="deploy §klicense-free mappings">Herobrine is real 2401</div>
+            <script src="/blog/pages/js/obfuscation.js"></script>
+            <p>
+              And here's a snippet to use it on your own website:
+            </p>
+            <div id="magic-snippet">
+              <p>
+                HTML:
+              </p>
+              <textarea class="html" readonly wrap="off">
+<div class="magic">Herobrine is real 2401</div>
+<script src="/blog/pages/js/obfuscation.js"></script>
+              </textarea>
+              <p>
+                JS:
+              </p>
+              <textarea class="js" readonly wrap="off">
+const isReducedMotion = window.matchMedia('(prefers-reduced-motion)').matches
+let charSet="\u00c0\u00c1\u00c2\u00c8\u00ca\u00cb\u00cd\u00d3\u00d4\u00d5\u00da\u00df\u00e3\u00f5\u011f\u0130\u0131\u0152\u0153\u015e\u015f\u0174\u0175\u017e\u0207" +
+"        !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ \u00c7\u00fc\u00e9\u00e2" +
+"\u00e4\u00e0\u00e5\u00e7\u00ea\u00eb\u00e8\u00ef\u00ee\u00ec\u00c4\u00c5\u00c9\u00e6\u00c6\u00f4\u00f6\u00f2\u00fb\u00f9\u00ff\u00d6\u00dc\u00f8\u00a3" +
+"\u00d8\u00d7\u0192\u00e1\u00ed\u00f3\u00fa\u00f1\u00d1\u00aa\u00ba\u00bf\u00ae\u00ac\u00bd\u00bc\u00a1\u00ab\u00bb\u2591\u2592\u2593\u2502\u2524\u2561\u2562\u2556" +
+"\u2555\u2563\u2551\u2557\u255d\u255c\u255b\u2510\u2514\u2534\u252c\u251c\u2500\u253c\u255e\u255f\u255a\u2554\u2569\u2566\u2560\u2550\u256c\u2567\u2568\u2564\u2565" +
+"\u2559\u2558\u2552\u2553\u256b\u256a\u2518\u250c\u2588\u2584\u258c\u2590\u2580\u03b1\u03b2\u0393\u03c0\u03a3\u03c3\u03bc\u03c4\u03a6\u0398\u03a9\u03b4\u221e\u2205" +
+"\u2208\u2229\u2261\u00b1\u2265\u2264\u2320\u2321\u00f7\u2248\u00b0\u2219\u00b7\u221a\u207f\u00b2\u25a0 ";
+
+const magicRenderer = (cleartext) => {
+    return () => {
+        let rendertext = "";
+        for (const char of cleartext) {
+            rendertext += charSet.charAt(Math.floor(Math.random() * charSet.length));
+        }
+        return rendertext;
+    }
+}
+
+const main = () => {
+    if (isReducedMotion) {
+        return;
+    }
+
+    document.querySelectorAll('.magic').forEach(function(node) {
+        let cleartext = node.textContent;
+        let renderer = magicRenderer(cleartext);
+        let id = setInterval(() => {
+            node.textContent = renderer();
+        }, 16);
+    });
+}
+
+main();
+              </textarea>
+              <p>
+                CSS:
+              </p>
+              <textarea class="css" readonly wrap="off">
+.magic {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 400;
+    line-height: 1.5;
+    font-variant-ligatures: none;
+    contain: content;
+    display: inline;
+    white-space-collapse: break-spaces;
+    word-break: break-all;
+    line-break: anywhere;
+    overflow-wrap: anywhere;
+}
+              </textarea>
+            </div>
+
+            <p>
+              <em>Always</em> disable this effect if the prefers-reduced-motion browser setting is enabled. Obfuscated
+              text will trigger reactions in photosensitive individuals.
+            </p>
+
+            <h2>More On Obfuscated Text:</h2>
+
+            <p>
+              Obfuscation is a format code that cycles the characters of the string it is applied to rapidly and randomly. 
+              The characters it cycles through are drawn from a pre-defined glyphset, and are redrawn if it does not match the bit-width of the character being formatted. 
+              Obfuscation rendering was been updated over the years, resulting in four different versions, which differ only in which characters are used in the glyphset.
+            </p>
+            <p>
+              The different glyphsets cause each version of obfuscation to have its own unique look and feel. 
+              I'm only interested in the version of obfuscation that existed in version 1.7, which was the version of Minecraft I played most. It feels like home.
+            </p>
+            <p>
+              Minecraft 1.7 obfuscates using a glyphset called ascii.png, a font texture file, which consists of 256 characters:
+            </p>
+            <img src="/blog/pages/images/ascii.png" alt="Minecraft 1.7 ascii.png" id="ascii-image">
+            <p>
+              Some of these characters are difficult to recognize. Instead of trying to find the codepoints manually, let's take a different approach. 
+              Decompilation projects for Minecraft have existed almost as long as Minecraft has. A 1.7 decomp project can be found at
+              <a href="http://www.modcoderpack.com/" rel="external noopener" target="_blank">modcoderpack.com</a>
+            </p>
+            <p>
+              After decompilation, we can find the code we are searching for in FontRenderer.java.
+              It contains a string that only gets read from in order to find a random character with the same bit-width.
+              Inspecting the codepoints used, we can see that it does indeed match up with ascii.png. What exactly is ascii.png then? Now that we know the codepoints, it is
+              far easier to find out.
+              ascii.png is a modified version of Code page 437, an oldschool extended ASCII charset. Gylphs 0-127 are identical to ASCII, with a few notable exceptions.
+              Code page 437 has no non-printing characters besides the null-byte, whitespace, and the non-breaking space. Every other non-printing character ASCII has is instead replaced with a 
+              <a href="https://en.wikipedia.org/wiki/Dingbat" rel="external noopener" target="_blank">symbol</a>. 
+              ascii.png takes this a step further by replacing glyphs 0 - 24 with an extended Latin alphabet. Some slots are free: glyphs
+              25 - 31 are unused and become null-bytes. Glyph 255, originally a non-breaking space (NBSP), is interpreted as a null-byte.
+            </p>
+            <p>
+              This gives us the first starting place for an accurate obfuscation implementation. We can export this string from FontRenderer.java and use it ourselves. Just make
+              sure to properly escape the string, and voila. Here, we run into our first problem. We cannot print the non-printing null-bytes. How should we handle this?
+              The source code has no special handling for null-bytes. If they are drawn, as long as the bit-width matches, it will be printed from ascii.png. The bit-width calculation, however,
+              is not nearly as transparent as the glyphset was. My best guess is that the null-byte bit widths are calculated as one, but that is unhelpful without knowing
+              what other glyphs also calculate to one.
+            </p>
+            <figure>
+              <textarea class="bitwidth" readonly wrap="off">
+int var2 = var1.getWidth();
+int var3 = var1.getHeight();
+int[] var4 = new int[var2 * var3];
+var1.getRGB(0, 0, var2, var3, var4, 0, var2);
+int var5 = var3 / 16;
+int var6 = var2 / 16;
+byte var7 = 1;
+float var8 = 8.0F / (float)var6;
+int var9 = 0;
+while (var9 < 256) {
+    int var10 = var9 % 16;
+    int var11 = var9 / 16;
+    if (var9 == 32) {
+    this.charWidth[var9] = 3 + var7;
+    }
+    int var12 = var6 - 1;
+    while (true) {
+        if (var12 >= 0) {
+            int var13 = var10 * var6 + var12;
+            boolean var14 = true;
+            for (int var15 = 0; var15 < var5 && var14; ++var15) {
+                int var16 = (var11 * var6 + var15) * var2;
+                if ((var4[var13 + var16] >> 24 & 255) != 0) {
+                    var14 = false;
+                }
+            }
+            if (var14) {
+                --var12;
+                continue;
+            }
+        }
+        ++var12;
+        this.charWidth[var9] = (int)(0.5D + (double)((float)var12 * var8)) + var7;
+        ++var9;
+        break;
+    }
+}
+              </textarea>
+              <figcaption>A bit of a brainteaser, this one...</figcaption>
+            </figure>
+
+            <p>
+              Fortunately, we can sidestep the issue entirely by using a monospaced font. This is a (mostly) required compromise, because a particular font is
+              difficult to guarantee in a browser context, and measuring bit-widths on the fly in JS would quickly become CPU expensive. By monospacing, we can relax
+              the bit-width requirement and use any character as a substitute for any character. We replace the null-bytes with whitespace and continue forward.
+            </p>
+            <p>
+              Obfuscated text is produced in the render stage, causing letters to flicker at a rate dependent on game framerate. Assuming a standard 60fps, we shift a string
+              every 16 ms. Set up your CSS breaking and whitespace rules <mark data-comment="Burying quite the lede here.">appropriately</mark>, and you should be done.
+            </p>
+            <p>
+              Related: <a href="/blog/pages/mdn.html">Trust nobody, not even MDN</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="comment">
+    <div id="comment-line">I love minecraft</div>
+    <div id="comment-indicator">
+      &lt</div>
+    <script src="/js/comment-line.js"></script>
+  </div>
+</body>
+
+</html>

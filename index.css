@@ -1,0 +1,84 @@
+@import url("/common.css");
+
+#statuscafe {
+  float: inline-end;
+  clear: right;
+  
+  width: 20%;
+  min-width: 150px;
+  max-width: 225px;
+
+  height: min-content;
+  margin: 25px 0px 14px 14px;
+  box-shadow: -2px -1px 6px -4px light-dark(var(--theme-light-comment), var(--theme-dark-comment));
+}
+
+@media (orientation: portrait) {
+  #statuscafe {
+    grid-area: statusbar;
+    width: 80vw;
+    max-width: unset;
+    margin: 25px 20px 25px 25px;
+  }
+}
+
+#statuscafe-loading {
+  font-size: .9em;
+  padding: 3px 5px;
+}
+
+#statuscafe-collection {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  margin: 0px 6px 0px 6px;
+  scrollbar-color: light-dark(var(--theme-light-primary), var(--theme-dark-primary)) rgba(0, 0, 0,0);
+  scroll-snap-align: start;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  overflow-y: auto;
+}
+
+#statuscafe-user {
+  margin: 10px 0px 2px -8px;
+  background-color: light-dark(var(--theme-light-bgaccent), var(--theme-dark-bgaccent));
+  box-shadow: -2px 0px 1px 2px light-dark(var(--theme-light-bgaccent), var(--theme-dark-bgaccent));
+  padding: 2px;
+}
+
+#statuscafe-user:hover {
+  background-color: light-dark(var(--theme-light-bgaccent), var(--theme-dark-bgaccent));
+  color: light-dark(var(--theme-light-emphasis), var(--theme-dark-emphasis));
+  transition: all 250ms ease-out;
+}
+
+#statuscafe-user:active {
+  background-color: light-dark(var(--theme-light-comment), var(--theme-dark-comment));
+  color: light-dark(var(--theme-color-base02), var(--theme-color-base2));
+  transition: all 10ms ease-out;
+}
+
+#statuscafe-user > a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 3px 5px;
+  font-weight: bold;
+  color: light-dark(var(--theme-light-primary), var(--theme-dark-primary));
+  text-decoration: none;
+}
+
+.statuscafe-status {
+  flex-grow: 1;
+  align-content: center;
+  scroll-snap-align: start;
+  font-size: .8em;
+  margin: 1px 1px 1px 1px;
+  padding: 4px 0px 4px 0px;
+}
+
+.statuscafe-status + .statuscafe-status {
+  box-shadow: 0px -1px 2px -1px light-dark(var(--theme-light-comment), var(--theme-dark-comment));
+}

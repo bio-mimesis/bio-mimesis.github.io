@@ -1,0 +1,308 @@
+@font-face {
+    font-family: "Meslo L";
+    src: url("/static/fonts-subset/Meslo-LG-DZ/MesloLGLDZ-Regular-subset.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Meslo M";
+    src: url("/static/fonts-subset/Meslo-LG-DZ/MesloLGMDZ-Regular-subset.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Iosevka Term SS04 Web';
+    font-display: fallback;
+    font-weight: 500;
+    font-stretch: expanded;
+    font-style: normal;
+    src: url('/static/fonts-subset/Iosevka-Term-SS04/IosevkaTermSS04-ExtendedMedium-subset.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Iosevka Term SS04 Web';
+    font-display: fallback;
+    font-weight: 400;
+    font-stretch: expanded;
+    font-style: normal;
+    src: url('/static/fonts-subset/Iosevka-Term-SS04/IosevkaTermSS04-Extended-subset.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Iosevka Term SS04 Web';
+    font-display: fallback;
+    font-weight: 300;
+    font-stretch: expanded;
+    font-style: normal;
+    src: url('/static/fonts-subset/Iosevka-Term-SS04/IosevkaTermSS04-ExtendedLight-subset.woff2') format('woff2');
+}
+
+:root {
+
+    font-family: "Meslo M", Verdana, sans-serif;
+
+    /* 
+    Solarized theme palette
+    https://ethanschoonover.com/solarized/
+    */
+    --theme-color-base03: #002b36;
+    --theme-color-base02: #073642;
+    --theme-color-base01: #586e75;
+    --theme-color-base00: #657b83;
+    --theme-color-base0: #839496;
+    --theme-color-base1: #93a1a1;
+    --theme-color-base2: #eee8d5;
+    --theme-color-base3: #fdf6e3;
+    --theme-color-yellow: #b58900;
+    --theme-color-orange: #cb4b16;
+    --theme-color-red: #dc322f;
+    --theme-color-magenta: #d33682;
+    --theme-color-violet: #6c71c4;
+    --theme-color-blue: #268bd2;
+    --theme-color-cyan: #2aa198;
+    --theme-color-green: #859900;
+
+    --theme-light-bg: var(--theme-color-base3);
+    --theme-light-bgaccent: var(--theme-color-base2);
+    --theme-light-comment: var(--theme-color-base1);
+    --theme-light-primary: var(--theme-color-base00);
+    --theme-light-emphasis: var(--theme-color-base01);
+
+    --theme-dark-bg: var(--theme-color-base03);
+    --theme-dark-bgaccent: var(--theme-color-base02);
+    --theme-dark-comment: var(--theme-color-base01);
+    --theme-dark-primary: var(--theme-color-base0);
+    --theme-dark-emphasis: var(--theme-color-base1);
+
+    color-scheme: light dark;
+    --comment-line-size: 1.5em;
+}
+
+html {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+::selection {
+    color: light-dark(var(--theme-light-bgaccent), var(--theme-dark-bgaccent));
+    background-color: light-dark(var(--theme-dark-bgaccent), var(--theme-light-bgaccent));
+}
+
+body {
+    height: 100%;
+    min-height: 100dvh;
+    padding: 0;
+    margin: 0;
+    background-color: light-dark(var(--theme-light-bg), var(--theme-dark-bg));
+    color: light-dark(var(--theme-light-primary), var(--theme-dark-primary));
+    overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: light-dark(var(--theme-light-emphasis), var(--theme-dark-emphasis));
+}
+
+p + h1,
+p + h2,
+p + h3,
+p + h4,
+p + h5,
+p + h6 {
+    margin: 4em 0px 1em 0px;
+}
+
+#root-layout {
+    display: grid;
+    height: calc(max-content + var(--comment-line-size));
+    grid-template-rows: calc(100dvh - var(--comment-line-size)) 1fr;
+    grid-template-areas:
+        "body"
+        "comment";
+    overflow: scroll;
+    scrollbar-gutter: stable;
+    scrollbar-color: light-dark(var(--theme-light-primary), var(--theme-dark-primary)) rgba(0, 0, 0, 0);
+    scrollbar-width: thin;
+}
+
+#body-layout {
+    display: grid;
+    grid-area: body;
+    height: 100%;
+    width: 100%;
+    grid:
+        "title title" min-content "body body" min-content "body body" min-content / 80% 20%;
+}
+
+#title {
+    grid-area: title;
+    text-align: right;
+    padding-right: 35px;
+}
+
+#body-container {
+    grid-area: body;
+    display: flex;
+    padding: 0px 17px;
+}
+
+#main-content {
+    width: 100%;
+}
+
+@media (orientation: portrait) {
+    #main-content {
+        display: grid;
+        height: 100%;
+        width: 100%;
+        grid:
+            "text" min-content "sidebar" min-content "statusbar" min-content / 100%;
+        justify-items: center;
+    }
+}
+
+#side-container {
+    float: inline-end;
+    display: flex;
+    flex-direction: column;
+    margin-left: 14px;
+    width: 20%;
+    min-width: 150px;
+    max-width: 225px;
+}
+
+@media (orientation: portrait) {
+    #side-container {
+        grid-area: sidebar;
+        align-self: flex-end;
+        width: fit-content;
+        min-width: 60%;
+        max-width: unset;
+        margin: 25px 20px 25px 25px;
+    }
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+    box-shadow: -2px -1px 6px -4px light-dark(var(--theme-light-comment), var(--theme-dark-bgaccent));
+}
+
+.sidebar-header {
+    padding: 5px;
+    margin: 10px 0px 2px -8px;
+    height: min-content;
+    font-weight: bold;
+    background-color: light-dark(var(--theme-light-bgaccent), var(--theme-dark-bgaccent));
+    box-shadow: -2px 0px 1px 2px light-dark(var(--theme-light-bgaccent), var(--theme-dark-bgaccent));
+}
+
+@media (orientation: portrait) {
+    .sidebar-header {
+        justify-content: flex-start;
+        width: 80vw;
+        margin-bottom: 3px;
+    }
+}
+
+.sidebar-link-flex {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.sidebar-link {
+    display: flex;
+    padding: 1px 3px;
+    flex-grow: 1;
+}
+
+@media (orientation: portrait) {
+    .sidebar-link {
+        padding: 4px;
+        text-align: center;
+    }
+}
+
+.sidebar-link+.sidebar-link {
+    box-shadow: 0px -1px 2px -1px light-dark(var(--theme-light-comment), var(--theme-dark-comment));
+}
+
+.sidebar-link:last-child {
+    box-shadow: 0px -1px 2px -1px light-dark(var(--theme-light-comment), var(--theme-dark-comment));
+}
+
+.sidebar-link:only-child {
+    box-shadow: unset;
+}
+
+.sidebar-link:hover {
+    background-color: light-dark(var(--theme-light-bgaccent), var(--theme-dark-bgaccent));
+    color: light-dark(var(--theme-light-emphasis), var(--theme-dark-emphasis));
+    transition: all 250ms ease-out;
+}
+
+.sidebar-link:active {
+    background-color: light-dark(var(--theme-light-comment), var(--theme-dark-comment));
+    color: light-dark(var(--theme-color-base02), var(--theme-color-base2));
+    transition: all 10ms ease-out;
+}
+
+.sidebar-link>a {
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 3px 5px;
+    color: light-dark(var(--theme-light-primary), var(--theme-dark-primary));
+    font-size: 0.9em;
+    text-decoration: none;
+}
+
+#comment {
+    display: grid;
+    grid:
+        "comment-line comment-indicator" 100% / 1fr 1em;
+    gap: 1em;
+    /* grid-row: comment; */
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--comment-line-size);
+    padding: 0px 1em 0px 1em;
+    font-family: "Iosevka Term SS04 Web", 'Courier New', Courier, monospace;
+    font-weight: 300;
+    text-align: right;
+    background-color: light-dark(var(--theme-light-primary), var(--theme-dark-primary));
+    color: light-dark(var(--theme-light-bg), var(--theme-dark-bg));
+}
+
+#comment-indicator {
+    grid-area: comment-indicator;
+    font-size: 1.2em;
+}
+
+#comment-line {
+    grid-area: comment-line;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+mark {
+    background-color: light-dark(var(--theme-light-bgaccent), var(--theme-dark-bgaccent));
+    color: light-dark(var(--theme-light-emphasis), var(--theme-dark-emphasis));
+}
